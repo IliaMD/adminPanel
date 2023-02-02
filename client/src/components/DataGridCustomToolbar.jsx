@@ -10,6 +10,13 @@ import {
 import FlexBetween from "./FlexBetween";
 
 const DataGridCustomToolbar = ({ searchInput, setSearchInput, setSearch }) => {
+  const handleEnterSearch = (e) => {
+    if (e.key === "Enter") {
+      setSearch(searchInput);
+      setSearchInput("");
+    }
+  };
+
   return (
     <GridToolbarContainer>
       <FlexBetween width="100%">
@@ -21,6 +28,7 @@ const DataGridCustomToolbar = ({ searchInput, setSearchInput, setSearch }) => {
         <TextField
           label="Search..."
           sx={{ mb: "0.5rem", width: "15rem" }}
+          onKeyDown={handleEnterSearch}
           onChange={(e) => setSearchInput(e.target.value)}
           value={searchInput}
           variant="standard"
