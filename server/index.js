@@ -43,10 +43,7 @@ app.use("/sales", salesRoutes);
 const PORT = process.env.PORT || 9000;
 mongoose.set("strictQuery", false);
 mongoose
-  .connect(process.env.MONGO_URL, {
-    useNewUrlParser: true,
-    useUnifiedTopology: true,
-  })
+  .connect(process.env.MONGO_URL)
   .then(() => {
     app.listen(PORT, () => console.log(`SERVER started at ${PORT} PORT`));
 
